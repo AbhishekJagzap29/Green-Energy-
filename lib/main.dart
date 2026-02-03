@@ -1,42 +1,49 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:solar/language_screen.dart';
+import 'language_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  static _MyAppState of(BuildContext context) {
+    return context.findAncestorStateOfType<_MyAppState>()!;
+  }
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Locale _locale = const Locale('en'); // default language
+
+  void changeLanguage(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Solar Solutions',
-
-      // 🌞 LIGHT THEME
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primarySwatch: Colors.green,
-        scaffoldBackgroundColor: Colors.grey.shade100,
-        appBarTheme: const AppBarTheme(
-          foregroundColor: Colors.white,
-        ),
-      ),
-
-      // 🌙 DARK THEME
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.green,
-        scaffoldBackgroundColor: const Color(0xFF121212),
-        appBarTheme: const AppBarTheme(
-          foregroundColor: Colors.white,
-          backgroundColor: Color(0xFF1F1F1F),
-        ),
-      ),
-
-      themeMode: ThemeMode.system, // ✅ AUTO dark/light
-      home: const HomeScreen(),
+      locale: _locale,
+      supportedLocales: const [
+        Locale('en'),
+        Locale('mr'),
+      ],
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      home: const LanguageScreen(), // 👈 START BEFORE LOGIN
     );
   }
 }

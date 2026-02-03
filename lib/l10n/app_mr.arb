@@ -1,0 +1,49 @@
+{
+  "@@locale": "mr",
+
+  "homeTitle": "मुख्य पृष्ठ",
+  "selectLanguage": "भाषा निवडा",
+  "english": "इंग्रजी",
+  "marathi": "मराठी",
+
+  "appTitle": "सोलर सोल्युशन्स",
+  "tagline": "स्वच्छ आणि हरित ऊर्जा",
+  "ourProducts": "आमची उत्पादने",
+  "solarWaterHeater": "सौर वॉटर हीटर",
+  "solarRooftop": "सौर रूफटॉप",
+
+  "rooftopTitle": "सोलर रूफटॉप सिस्टीम",
+  "rooftopPricingTitle": "रूफटॉप सिस्टीम दर",
+
+  "capacity": "क्षमता",
+  "areaRequired": "आवश्यक क्षेत्र",
+  "price": "किंमत",
+
+  "warrantyText": "सोलर पॅनेल्सवर २५ वर्षांची कार्यक्षमता हमी मिळते",
+
+  "keyBenefits": "मुख्य फायदे",
+  "benefit1": "वीज बिलामध्ये ९०% पर्यंत बचत",
+  "benefit2": "सरकारी अनुदान उपलब्ध",
+  "benefit3": "नेट मीटरिंग सुविधा",
+  "benefit4": "पर्यावरणपूरक आणि नवीकरणीय ऊर्जा",
+
+  "callRooftop": "रूफटॉप चौकशीसाठी कॉल करा",
+
+
+  "solarHeaterTitle": "सौर वॉटर हीटर",
+  "availableCapacities": "उपलब्ध क्षमता",
+
+  "capacity": "क्षमता",
+  "tubes": "ट्यूब्स",
+  "price": "किंमत",
+
+  "heaterWarranty": "टँक आणि ट्यूब्सवर १० वर्षांची हमी",
+  "callHeater": "चौकशीसाठी कॉल करा",
+  "drawerTitle": "सोलर सोल्युशन्स",
+  "drawerSubtitle": "भविष्यासाठी स्वच्छ ऊर्जा",
+
+  "menuHome": "मुख्य पृष्ठ",
+  "menuSolarHeater": "सौर वॉटर हीटर",
+  "menuSolarRooftop": "सौर रूफटॉप",
+  "menuContact": "संपर्क करा"
+}

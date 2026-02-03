@@ -1,0 +1,48 @@
+{
+  "@@locale": "en",
+
+  "homeTitle": "Home",
+  "selectLanguage": "Select Language",
+  "english": "English",
+  "marathi": "Marathi",
+
+  "appTitle": "Solar Solutions",
+  "tagline": "Clean & Green Energy",
+  "ourProducts": "Our Products",
+  "solarWaterHeater": "Solar Water Heater",
+  "solarRooftop": "Solar Rooftop",
+
+  "rooftopTitle": "Solar Rooftop System",
+  "rooftopPricingTitle": "Rooftop System Pricing",
+
+  "capacity": "Capacity",
+  "areaRequired": "Area Required",
+  "price": "Price",
+
+  "warrantyText": "Solar panels come with 25 Years Performance Warranty",
+
+  "keyBenefits": "Key Benefits",
+  "benefit1": "Reduce electricity bills up to 90%",
+  "benefit2": "Government subsidy available",
+  "benefit3": "Net metering supported",
+  "benefit4": "Eco-friendly & renewable energy",
+
+  "callRooftop": "Call for Rooftop Enquiry",
+  "solarHeaterTitle": "Solar Water Heater",
+  "availableCapacities": "Available Capacities",
+
+  "capacity": "Capacity",
+  "tubes": "Tubes",
+  "price": "Price",
+
+  "heaterWarranty": "10 Years Warranty on Tank & Tubes",
+  "callHeater": "Call for Enquiry",
+
+  "drawerTitle": "Solar Solutions",
+  "drawerSubtitle": "Clean Energy for Future",
+
+  "menuHome": "Home",
+  "menuSolarHeater": "Solar Water Heater",
+  "menuSolarRooftop": "Solar Rooftop",
+  "menuContact": "Contact Us"
+}

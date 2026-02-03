@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:solar/screens/rooftop_screen.dart';
+import 'package:solar/screens/solar_water_heater_screen.dart';
 import 'package:solar/widgets/category_card.dart';
-import '/widgets/app_drawer.dart';
-import '/screens/solar_water_heater_screen.dart';
+import 'package:solar/widgets/app_drawer.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+
     return Scaffold(
       drawer: Drawer(
         width: MediaQuery.of(context).size.width * 0.65,
@@ -16,16 +19,15 @@ class HomeScreen extends StatelessWidget {
       ),
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          'Solar Solutions',
-          style: TextStyle(
+        title: Text(
+          t.appTitle,
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             letterSpacing: 0.6,
           ),
         ),
-        elevation: 0,
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
+        flexibleSpace: const DecoratedBox(
+          decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [Colors.green, Colors.lightGreen],
               begin: Alignment.topLeft,
@@ -38,72 +40,71 @@ class HomeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // ===== LOGO SECTION (CIRCULAR) =====
               const SizedBox(height: 24),
-              Center(
-                child: Column(
-                  children: [
-                    Container(
-                      height: 110,
-                      width: 110,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Theme.of(context).cardColor,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.25),
-                            blurRadius: 10,
-                            offset: const Offset(0, 5),
-                          ),
-                        ],
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Image.asset(
-                          'assets/images/home.png',
-                          fit: BoxFit.contain,
+
+              // LOGO + TAGLINE
+              Column(
+                children: [
+                  Container(
+                    height: 110,
+                    width: 110,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Theme.of(context).cardColor,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.25),
+                          blurRadius: 10,
+                          offset: const Offset(0, 5),
                         ),
+                      ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Image.asset(
+                        'assets/images/home.png',
+                        fit: BoxFit.contain,
                       ),
                     ),
-                    const SizedBox(height: 12),
-                    const Text(
-                      'Clean & Green Energy',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey,
-                        letterSpacing: 0.5,
-                      ),
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    t.tagline,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.grey,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
 
               const SizedBox(height: 40),
 
-              // ===== SECTION TITLE =====
+              // SECTION TITLE
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'Our Products',
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
+                    t.ourProducts,
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge
+                        ?.copyWith(fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
 
               const SizedBox(height: 24),
 
-              // ===== CATEGORY CARDS =====
+              // CATEGORY CARDS
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   children: [
                     CategoryCard(
-                      title: 'Solar Water Heater',
+                      title: t.solarWaterHeater,
                       image: 'assets/images/water_heater.png',
                       height: 160,
                       imageSize: 100,
@@ -118,7 +119,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
                     CategoryCard(
-                      title: 'Solar Rooftop',
+                      title: t.solarRooftop,
                       image: 'assets/images/rooftop.jpg',
                       height: 160,
                       imageSize: 100,

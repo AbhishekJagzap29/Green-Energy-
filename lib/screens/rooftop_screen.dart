@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RooftopSystemScreen extends StatelessWidget {
   const RooftopSystemScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+
     final systems = [
       {'capacity': '1 kW', 'area': '100 sq.ft', 'price': '₹55,000'},
       {'capacity': '2 kW', 'area': '200 sq.ft', 'price': '₹1,05,000'},
@@ -19,7 +22,7 @@ class RooftopSystemScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Solar Rooftop System'),
+        title: Text(t.rooftopTitle),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -27,7 +30,6 @@ class RooftopSystemScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ===== Brand Image =====
             ClipRRect(
               borderRadius: BorderRadius.circular(18),
               child: Image.asset(
@@ -37,20 +39,14 @@ class RooftopSystemScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-
             const SizedBox(height: 24),
-
-            // ===== Title =====
             Text(
-              'Rooftop System Pricing',
+              t.rooftopPricingTitle,
               style: theme.textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
-
             const SizedBox(height: 16),
-
-            // ===== Pricing Table =====
             Container(
               decoration: BoxDecoration(
                 color: theme.cardColor,
@@ -75,37 +71,28 @@ class RooftopSystemScreen extends StatelessWidget {
                   2: FlexColumnWidth(1.4),
                 },
                 children: [
-                  // Header
                   TableRow(
                     decoration: BoxDecoration(
                       color: colorScheme.primary.withOpacity(0.1),
                     ),
-                    children: const [
-                      _TableHeader(text: 'Capacity'),
-                      _TableHeader(text: 'Area Required'),
-                      _TableHeader(text: 'Price'),
+                    children: [
+                      _TableHeader(text: t.capacity),
+                      _TableHeader(text: t.areaRequired),
+                      _TableHeader(text: t.price),
                     ],
                   ),
-
-                  // Rows
                   for (var item in systems)
                     TableRow(
                       children: [
                         _TableCell(text: item['capacity']!),
                         _TableCell(text: item['area']!),
-                        _TableCell(
-                          text: item['price']!,
-                          isPrice: true,
-                        ),
+                        _TableCell(text: item['price']!, isPrice: true),
                       ],
                     ),
                 ],
               ),
             ),
-
             const SizedBox(height: 20),
-
-            // ===== Warranty =====
             Container(
               padding: const EdgeInsets.all(14),
               decoration: BoxDecoration(
@@ -118,7 +105,7 @@ class RooftopSystemScreen extends StatelessWidget {
                   const SizedBox(width: 10),
                   Expanded(
                     child: Text(
-                      'Solar panels come with 25 Years Performance Warranty',
+                      t.warrantyText,
                       style: theme.textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
@@ -127,26 +114,19 @@ class RooftopSystemScreen extends StatelessWidget {
                 ],
               ),
             ),
-
             const SizedBox(height: 24),
-
-            // ===== Key Benefits =====
             Text(
-              'Key Benefits',
+              t.keyBenefits,
               style: theme.textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 12),
-
-            _featureItem(context, 'Reduce electricity bills up to 90%'),
-            _featureItem(context, 'Government subsidy available'),
-            _featureItem(context, 'Net metering supported'),
-            _featureItem(context, 'Eco-friendly & renewable energy'),
-
+            _featureItem(context, t.benefit1),
+            _featureItem(context, t.benefit2),
+            _featureItem(context, t.benefit3),
+            _featureItem(context, t.benefit4),
             const SizedBox(height: 28),
-
-            // ===== Call Button =====
             SizedBox(
               width: double.infinity,
               child: ElevatedButton.icon(
@@ -157,7 +137,7 @@ class RooftopSystemScreen extends StatelessWidget {
                   }
                 },
                 icon: const Icon(Icons.call),
-                label: const Text('Call for Rooftop Enquiry'),
+                label: Text(t.callRooftop),
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
